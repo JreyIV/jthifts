@@ -3,7 +3,24 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    let query = "SELECT product_id, product_type, product_size, product_material, product_condition, product_brand, product_price FROM product WHERE homepage = true ";
+
+     // execute query
+    db.query(query, (err, result) => {
+        if (err) {
+            console.log(err);
+            res.render('error');
+        }
+
+        let query = "select promotitle, promoimage, startdate, enddate from promotion where startdate <= current_date() AND enddate >= current_date()";
+        db.query(query, (err, result2) => {
+            if (err) {
+                console.log(err);
+                res.render('error');
+            }
+            res.render('index', {allrecs: result, promos: result2 });
+        });
+    });
 });
 
 module.exports = router;

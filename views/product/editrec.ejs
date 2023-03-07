@@ -1,0 +1,15 @@
+<h1> Edit</h1>
+<form action="/product/save" method="post">
+    <input type="hidden" name="product_id" value="<%= onerec.product_id %>" >
+<table>
+    <tr> <td> Product ID: </td> <td> <input type="text" name="customer_id" value="<%= onerec.product_id %>" required> </td> </tr>
+    <tr> <td> Type: </td> <td> <input type="text" name="product_type" value="<%= onerec.product_type %>" required> </td> </tr>
+    <tr> <td> Size: </td> <td> <input type="text" name="product_size" value="<%= onerec.product_size %>" required> </td> </tr>
+    <tr> <td> Material: </td> <td> <input type="text" name="product_material" value="<%= onerec.product_material %>" required> </td> </tr>
+    <tr> <td> Condition: </td> <td> <input type="text" name="product_condition" value="<%= onerec.product_condition %>" required> </td> </tr>
+    <tr> <td> Brand: </td> <td> <input type="text" name="product_brand" value="<%= onerec.product_brand %>" required> </td> </tr>
+    <tr> <td> Price: </td> <td> <input type="text" name="product_price" value="<%= onerec.product_price %>" required> </td> </tr>
+    <tr> <td> Homepage: </td> <td> <input type="checkbox" name="homepage" value="<%= onerec.homepage %>"> </td> </tr>
+</table>
+<button type="submit">Save</button>
+</form>

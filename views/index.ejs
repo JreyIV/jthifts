@@ -7,10 +7,38 @@
   <body>
     <header>
         <h1>JThrifts</h1>
-        <p>Joseph Reyes. This is my index page.</p>
+        <p>Welcome! Have a look around</p>
     </header>
     <main>
+        <table width="100%"><tr>
+            <td width="80%">
+             
 
+            <% if (allrecs.length > 0) {%>
+                <% allrecs.forEach((recref, index) => { %>
+                    <product>
+                    <table>
+                        <tr> <td><%= recref.product_id %></td><td><%= recref.product_type %></td></tr>
+                        <tr> <td colspan="2"><%= recref.product_size %></td></tr>
+                        <tr> <td colspan="2"><%= recref.product_material %></td></tr>
+                        <tr> <td><%= recref.product_condition %></td> <td><%= recref.product_brand %></td></tr>
+                        <tr> <td><%= recref.product_price %></td><td>
+                        <td><a href='/product/<%= recref.product_id %>/show'>Details</a></td></tr>
+                    </table>
+                    </product>
+                <% }); %>
+            <% } %>
+            </td>
+            <td width = "20%">
+            <% if (promos.length > 0) {%>
+                <table>
+                <% promos.forEach((recref, index) => { %>
+                    <img src="/images/<%= recref.promoimage %>">
+                </table>
+                <% }); %>
+            <% } %>
+            </td>
+        </tr></table>
     </main>
     <footer>
         
