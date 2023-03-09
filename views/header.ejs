@@ -4,8 +4,16 @@
         </a>
     </td>
     <td width='60%' align='center'><h1>JThrifts</h1></td>
-    <td width='10%' align='center'>Login Control</td>
-    <td width='10%' align='center'>Cart Control</td>
+    <td width='10%' align='center'>
+        <% if(session.customer_id > 0) { %>
+            <b> Hello <b> <%= session.custname %>! </b> </br>
+            <a href='/customer/logout'>Logout</a>
+        <% } else { %>
+            <a href='/customer/register'>New Customer</a> </br>
+            <a href='/customer/login'>Login</a>
+        <% } %>
+    </td>
+    <td width='10%' align='center'><a href="/catalog/cart">Cart</a></td>
     </tr>
 </table>
     <p>
